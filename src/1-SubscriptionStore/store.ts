@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type Store<T> = {
+export type Store<T> = {
   getState: () => T;
   setState: (v: T | ((v: T) => T)) => void;
   subscribe: (callback: () => void) => () => void;
@@ -27,7 +27,7 @@ export const createStore = <T extends unknown>(initialState: T): Store<T> => {
   return { getState, setState, subscribe };
 };
 
-export const useStore = (store) => {
+export const useStore = <T extends unknown>(store: Store<T>) => {
   const [state, setState] = useState(store.getState());
 
   useEffect(() => {
@@ -38,5 +38,5 @@ export const useStore = (store) => {
     return unsubscribe;
   }, [store]);
 
-  return [state, store.setState];
+  return [state, store.setState] as const;
 };

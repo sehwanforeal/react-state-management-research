@@ -6,7 +6,7 @@ export const Box: FC<PropsWithChildren<{ big?: boolean }>> = ({
 }) => {
   const size = big
     ? { width: 200, height: 200 * 3.5 }
-    : { width: 70 * 1.75, height: 70 };
+    : { width: 90 * 1.75, height: 90 };
   return (
     <div
       style={{
@@ -18,10 +18,10 @@ export const Box: FC<PropsWithChildren<{ big?: boolean }>> = ({
         justifyContent: big ? undefined : "center",
         padding: big ? "20px 0" : undefined,
         alignItems: "center",
-        fontSize: 20,
+        fontSize: 16,
         borderRadius: 12,
         fontWeight: 800,
-        margin: 20,
+        margin: 10,
       }}
     >
       {children}
