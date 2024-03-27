@@ -1,4 +1,4 @@
-import { createStore, useStore } from "@/SubscriptionStore/store";
+import { createStore, useStore } from "@/1-SubscriptionStore/store";
 import { Box } from "@/Box";
 
 export const SubscriptionStoreExample = () => {
